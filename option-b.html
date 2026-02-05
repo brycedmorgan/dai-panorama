@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panorama — Luxury foothills living. The view is better from here.">
+    <title>Panorama | Option B — Persuasive Flow</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-primary: #0a1628;
+            --color-secondary: #1a365d;
+            --color-accent: #c9a962;
+            --color-accent-light: #e8d5a3;
+            --color-white: #ffffff;
+            --color-gray-50: #fafafa;
+            --color-gray-100: #f4f4f5;
+            --color-gray-400: #a1a1aa;
+            --color-gray-600: #52525b;
+            --color-gray-800: #27272a;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-gray-800);
+            line-height: 1.7;
+        }
+        
+        /* Hero - Bold Statement */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            padding: 4rem 2rem;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920') center/cover;
+            opacity: 0.15;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(201, 169, 98, 0.2);
+            border: 1px solid var(--color-accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 span { color: var(--color-accent); }
+        
+        .hero-sub {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .btn-primary:hover { background: var(--color-accent-light); }
+        
+        .btn-outline {
+            border: 2px solid rgba(255,255,255,0.5);
+            color: var(--color-white);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--color-white);
+        }
+        
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.5rem;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--color-primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .section-text {
+            font-size: 1.15rem;
+            color: var(--color-gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Problem/Solution Section */
+        .problem-section {
+            background: var(--color-gray-50);
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .problem-grid { grid-template-columns: 1fr; }
+        }
+        
+        .problem-card {
+            background: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--color-gray-100);
+        }
+        
+        .problem-card.bad {
+            border-top: 4px solid #ef4444;
+        }
+        
+        .problem-card.good {
+            border-top: 4px solid var(--color-accent);
+        }
+        
+        .problem-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .problem-card ul {
+            list-style: none;
+        }
+        
+        .problem-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--color-gray-100);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .problem-card li:last-child { border-bottom: none; }
+        
+        .problem-card.bad li::before {
+            content: "✗";
+            color: #ef4444;
+            font-weight: bold;
+        }
+        
+        .problem-card.good li::before {
+            content: "✓";
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+        
+        /* Builder Logos */
+        .builders-section {
+            background: var(--color-white);
+        }
+        
+        .builders-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .builder-logos {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--color-gray-50);
+            border-radius: 16px;
+        }
+        
+        .builder-logo {
+            height: 50px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+        
+        .builder-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+        
+        .builder-logo-placeholder {
+            width: 120px;
+            height: 50px;
+            background: var(--color-gray-100);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray-400);
+            font-size: 0.75rem;
+        }
+        
+        /* Amenities Cards */
+        .amenities-section {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .amenities-section .section-title { color: var(--color-white); }
+        .amenities-section .section-text { color: rgba(255,255,255,0.7); }
+        
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .amenity-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .amenity-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .amenity-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .amenity-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .amenity-card p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .coming-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 0.75rem;
+        }
+        
+        /* Comparison Table */
+        .comparison-section {
+            background: var(--color-gray-50);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: var(--color-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--color-gray-100);
+        }
+        
+        .comparison-table th {
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .comparison-table th:first-child { border-radius: 16px 0 0 0; }
+        .comparison-table th:last-child { border-radius: 0 16px 0 0; }
+        
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .comparison-table tr:last-child td { border-bottom: none; }
+        
+        .check { color: var(--color-accent); font-weight: bold; }
+        .x { color: #ef4444; }
+        
+        /* Location */
+        .location-section {
+            background: var(--color-white);
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .location-content { grid-template-columns: 1fr; }
+        }
+        
+        .location-text h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .location-text p {
+            color: var(--color-gray-600);
+            margin-bottom: 1.5rem;
+        }
+        
+        .location-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        
+        .location-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .location-map {
+            aspect-ratio: 4/3;
+            background: var(--color-gray-100);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray-400);
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+        
+        .final-cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: rgba(255,255,255,0.6);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        footer .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">🏔️ Now Accepting Reservations</div>
+        <h1>You Deserve a Home With a <span>View That Takes Your Breath Away</span></h1>
+        <p class="hero-sub">Panorama isn't just a neighborhood — it's an elevated lifestyle in Utah's most stunning foothills. Premium builders. World-class amenities. Views that remind you why you work so hard.</p>
+        
+        <div class="hero-cta">
+            <a href="#builders" class="btn btn-primary">Explore Homes →</a>
+            <a href="#contact" class="btn btn-outline">Schedule a Tour</a>
+        </div>
+        
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-value">6-8</div>
+                <div class="stat-label">Premier Builders</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">May '27</div>
+                <div class="stat-label">Amenities Opening</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">360°</div>
+                <div class="stat-label">Mountain Views</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">$0</div>
+                <div class="stat-label">To Reserve</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem/Solution -->
+<section class="problem-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-label">The Difference</p>
+            <h2 class="section-title">Not All Communities Are Created Equal</h2>
+            <p class="section-text">Most developments promise luxury but deliver cookie-cutter. Panorama is different.</p>
+        </div>
+        
+        <div class="problem-grid">
+            <div class="problem-card bad">
+                <h3>❌ Typical Developments</h3>
+                <ul>
+                    <li>Same builder, same floor plan, every lot</li>
+                    <li>Amenities "coming soon" for years</li>
+                    <li>Valley floor — neighbors in your backyard</li>
+                    <li>Traffic, noise, strip mall views</li>
+                    <li>HOA promises, no delivery</li>
+                </ul>
+            </div>
+            
+            <div class="problem-card good">
+                <h3>✨ Panorama</h3>
+                <ul>
+                    <li>6-8 premium builders — true variety</li>
+                    <li>Amenities opening May 2027 (confirmed)</li>
+                    <li>Foothills elevation — privacy & views</li>
+                    <li>Mountain trails, fresh air, peace</li>
+                    <li>DAI commitment to excellence</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Builders -->
+<section class="builders-section" id="builders">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-label">Distinguished Partners</p>
+            <h2 class="section-title">Built by the Region's Best</h2>
+            <p class="section-text">We handpicked builders known for quality, innovation, and standing behind their work.</p>
+        </div>
+        
+        <div class="builder-logos">
+            <div class="builder-logo-placeholder">Toll Brothers</div>
+            <div class="builder-logo-placeholder">Builder 2</div>
+            <div class="builder-logo-placeholder">Builder 3</div>
+            <div class="builder-logo-placeholder">Builder 4</div>
+            <div class="builder-logo-placeholder">Builder 5</div>
+            <div class="builder-logo-placeholder">Builder 6</div>
+        </div>
+        
+        <p style="text-align: center; color: var(--color-gray-600);">More builders being announced soon. <a href="#contact" style="color: var(--color-accent);">Get notified →</a></p>
+    </div>
+</section>
+
+<!-- Amenities -->
+<section class="amenities-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-label">Community Living</p>
+            <h2 class="section-title">Amenities Worth Coming Home To</h2>
+            <p class="section-text">Because your neighborhood should feel like a resort.</p>
+        </div>
+        
+        <div class="amenities-grid">
+            <div class="amenity-card">
+                <div class="amenity-icon">🎢</div>
+                <h4>Adventure Playground</h4>
+                <p>Zip lines, climbing tower, rope courses — designed for all ages.</p>
+                <span class="coming-badge">May 2027</span>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">🥾</div>
+                <h4>Mountain Trails</h4>
+                <p>Miles of walking paths with panoramic valley views.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">🛝</div>
+                <h4>Modern Play Structures</h4>
+                <p>Slides, swings, and climbing features kids actually want to use.</p>
+                <span class="coming-badge">May 2027</span>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">🌳</div>
+                <h4>Parks & Open Space</h4>
+                <p>Green gathering areas for picnics, events, and community.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">🏔️</div>
+                <h4>360° Mountain Views</h4>
+                <p>Every home site selected for optimal views.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">🌅</div>
+                <h4>Sunset Overlook</h4>
+                <p>Dedicated viewing area to watch the valley light up.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="comparison-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-label">The Side-by-Side</p>
+            <h2 class="section-title">Panorama vs. Other Communities</h2>
+        </div>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Typical Development</th>
+                    <th>Panorama</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Builder Variety</td>
+                    <td>1-2 builders</td>
+                    <td><span class="check">6-8 premium builders</span></td>
+                </tr>
+                <tr>
+                    <td>Views</td>
+                    <td>Neighbor's fence</td>
+                    <td><span class="check">360° mountain panoramas</span></td>
+                </tr>
+                <tr>
+                    <td>Amenities</td>
+                    <td>"Coming soon" (maybe)</td>
+                    <td><span class="check">May 2027 (confirmed)</span></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>Valley floor traffic</td>
+                    <td><span class="check">Quiet foothills elevation</span></td>
+                </tr>
+                <tr>
+                    <td>Adventure Playground</td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="check">✓ Zip lines, towers, ropes</span></td>
+                </tr>
+                <tr>
+                    <td>Developer Track Record</td>
+                    <td>Unknown</td>
+                    <td><span class="check">DAI — proven excellence</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Location -->
+<section class="location-section">
+    <div class="container">
+        <div class="location-content">
+            <div class="location-text">
+                <p class="section-label">Prime Location</p>
+                <h2>Foothills Serenity, City Convenience</h2>
+                <p>Panorama sits at the perfect intersection of natural beauty and everyday accessibility. Minutes from everything you need — yet worlds away from the ordinary.</p>
+                
+                <div class="location-features">
+                    <div class="location-feature">🏫 Top-rated schools</div>
+                    <div class="location-feature">🛒 Shopping minutes away</div>
+                    <div class="location-feature">🍽️ Dining & entertainment</div>
+                    <div class="location-feature">🏥 Healthcare nearby</div>
+                    <div class="location-feature">🚗 Easy commute access</div>
+                    <div class="location-feature">⛰️ Trailheads at your door</div>
+                </div>
+            </div>
+            
+            <div class="location-map">[Interactive Map Coming]</div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta" id="contact">
+    <div class="container">
+        <h2>Ready to See the View?</h2>
+        <p>Join the waitlist for exclusive updates, early lot selection, and builder announcements. No commitment — just first access.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#" class="btn btn-primary">Get on the List →</a>
+            <a href="#" class="btn btn-outline">Schedule a Tour</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="logo">Panorama</div>
+    <p>A DAI Development • The view is better from here.</p>
+    <p style="margin-top: 1rem;">© 2026 Panorama. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
